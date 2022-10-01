@@ -1,0 +1,17 @@
+---
+title: "homework 1"
+author: "Kyle Kim"
+date: "2022-10-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r }
+
+```
+
+
