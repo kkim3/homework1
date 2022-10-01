@@ -6,16 +6,89 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE , message=FALSE, warning = FALSE)
 library(tidyverse)
-library(ggthemes)
+library(ggplot2)
 library(corrplot)
 ```
 
 
 ```{r }
 # q1
-# Supervised learning
+# Supervised learning is a type of machine learning where the observed values of the outcome are already known for each observation.
+# Unsupervised learning is a type of machine learning that is opposite, meaning that there is no response variable to predict.
+```
+
+```{r }
+# q2
+# A regression model is a model based on quantitative responses, taking on numerical values for its variables.
+# A classification model is a model based on qualitative (or binary) responses, taking on non-numerical values for its variables.
+```
+
+```{r }
+# q3 
+# Commonly used metrics for regression ML problems:
+# MSE, R-squared
+# Commonly used metrics for classification ML problems:
+# Accuracy, Precision
+```
+
+```{r }
+# q4 (from lecture)
+# Descriptive models: choosing model that best fits data trends (ex. using a line on a scatterplot)
+# Inferential models: predict Y with minimum reductible error, excludes focus of hypothesis testing
+# Predictive models: to test theories, state the relationship between outcome and predictor
+```
+
+```{r }
+# q5 (from lecture)
+# Mechanistic means parametric, while empirically-driven means non-parametric. Mechanistic models assume a parametric form that will not match the true unknown form of the model. An empirically-driven model requires more observations and is much more flexible compared to mechanistic models.
+# A mechanistic model is easier to understand because of the use of simple parametric forms.
+# Mechanistic models have higher bias while empirically-driven models have a higher variance.
+```
+
+```{r }
+# q6
+# The first question is Predictive. Question is asking about the probability of voter behavior.
+# The second question is Inferential. Question is asking about how the likelihood would change through a condition that changes the result.
+```
+
+```{r }
+# Exercise 1
+mpg %>%
+  ggplot(aes(x = hwy)) + geom_histogram()
+# The distribution appears to be positively skewed, with hwy miles per gallon increasing.
+```
+```{r }
+# Exercise 2
+mpg %>%
+  ggplot(aes(x = hwy, y = cty)) + geom_point()
+# There is a positive correlation between hwy and cty. This is a linear correlation as well, as there are more highways as there is more city mileage.
 ```
 
 
+
+```{r }
+# Exercise 3
+mpg %>%
+  ggplot(aes(x = manufacturer)) + geom_bar() + coord_flip()
+# Dodge produced the most cars, while Lincoln produced the least.
+```
+
+```{r }
+# Exercise 4 
+mpg %>%
+  ggplot(aes(x = hwy, y = factor(cyl))) + geom_boxplot()
+# As cylinders in a car increase, the highway miles per gallon usually decreases. 4 cylinders in a car produces the highest mileage, while 5 cylinders in a car produces the least.
+```
+
+```{r }
+# Exercise 5
+mpg %>%
+  select(is.numeric) %>%
+  cor() %>%
+  corrplot()
+# Positively correlated: displ and cty, cty and hwy
+# Negatively correlated: displ and cty & hwy, cyl and cty & hwy
+# Yes, the plot makes sense.
+```
