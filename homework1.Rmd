@@ -66,8 +66,6 @@ mpg %>%
 # There is a positive correlation between hwy and cty. This is a linear correlation as well, as there are more highways as there is more city mileage.
 ```
 
-
-
 ```{r }
 # Exercise 3
 mpg %>%
