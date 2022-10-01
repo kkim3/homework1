@@ -7,11 +7,15 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggthemes)
+library(corrplot)
 ```
 
 
 ```{r }
-
+# q1
+# Supervised learning
 ```
 
 
